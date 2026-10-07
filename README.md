@@ -16,7 +16,8 @@ impersonation) rather than the plain `requests` library.
 
 ```
 python -m venv .venv
-.venv\Scripts\activate
+.venv\Scripts\activate      # Windows
+source .venv/bin/activate   # macOS/Linux
 pip install -e ".[dev]"
 ```
 
@@ -90,9 +91,9 @@ one held out of the tuning process entirely:
 
 | Transition | Naive | Age curve only | Age curve + blend (default) |
 | --- | --- | --- | --- |
-| 2023-24 → 2024-25 | 0.754 | 0.769 | 0.784 |
-| 2024-25 → 2025-26 | 0.702 | 0.736 | 0.758 |
-| 2025-26 → 2026-27 | 0.681 | 0.712 | 0.732 |
+| 2022-23 → 2023-24 | 0.754 | 0.769 | 0.784 |
+| 2023-24 → 2024-25 | 0.702 | 0.736 | 0.758 |
+| 2024-25 → 2025-26 | 0.681 | 0.712 | 0.732 |
 
 The age curve + blend combination beats both the naive baseline and the
 age-curve-only version in every transition tested, including the held-out
