@@ -1,0 +1,19 @@
+{
+  "resource": "leaguedashplayerstats",
+  "parameters": {"Season": "2024-25"},
+  "resultSets": [
+    {
+      "name": "LeagueDashPlayerStats",
+      "headers": [
+        "PLAYER_ID", "PLAYER_NAME", "TEAM_ID", "TEAM_ABBREVIATION", "AGE", "GP", "W", "L",
+        "W_PCT", "MIN", "FGM", "FGA", "FG_PCT", "FG3M", "FG3A", "FG3_PCT", "FTM", "FTA",
+        "FT_PCT", "OREB", "DREB", "REB", "AST", "TOV", "STL", "BLK", "BLKA", "PF", "PFD",
+        "PTS", "PLUS_MINUS"
+      ],
+      "rowSet": [
+        [1, "Player A", 100, "DEN", 28, 70, 50, 20, 0.714, 34.0, 10.0, 18.0, 0.556, 1.0, 3.0, 0.333, 6.0, 7.0, 0.857, 2.0, 9.0, 11.0, 9.0, 3.0, 1.3, 0.7, 0.2, 2.0, 3.0, 27.0, 5.0],
+        [2, "Player B", 200, "LAL", 25, 65, 30, 35, 0.462, 30.0, 7.0, 15.0, 0.467, 2.0, 5.0, 0.4, 3.0, 4.0, 0.75, 1.0, 4.0, 5.0, 4.0, 2.0, 1.0, 0.3, 0.1, 2.0, 2.0, 19.0, -1.0]
+      ]
+    }
+  ]
+}

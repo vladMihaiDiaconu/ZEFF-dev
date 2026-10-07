@@ -1,0 +1,14 @@
+{
+  "resource": "leaguedashteamstats",
+  "parameters": {"Season": "2025-26", "MeasureType": "Advanced"},
+  "resultSets": [
+    {
+      "name": "LeagueDashTeamStats",
+      "headers": ["TEAM_ID", "TEAM_NAME", "GP", "W", "L", "PACE"],
+      "rowSet": [
+        [1610612737, "Atlanta Hawks", 82, 46, 36, 102.5],
+        [1610612761, "Toronto Raptors", 82, 40, 42, 98.1]
+      ]
+    }
+  ]
+}

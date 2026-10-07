@@ -1,0 +1,19 @@
+{
+  "resource": "leaguedashplayerstats",
+  "parameters": {"Season": "2024-25", "MeasureType": "Advanced"},
+  "resultSets": [
+    {
+      "name": "LeagueDashPlayerStats",
+      "headers": [
+        "PLAYER_ID", "PLAYER_NAME", "TEAM_ID", "TEAM_ABBREVIATION", "AGE", "GP", "W", "L",
+        "W_PCT", "MIN", "OFF_RATING", "DEF_RATING", "NET_RATING", "AST_PCT", "AST_TO",
+        "AST_RATIO", "OREB_PCT", "DREB_PCT", "REB_PCT", "TM_TOV_PCT", "EFG_PCT", "TS_PCT",
+        "USG_PCT", "PACE", "PIE"
+      ],
+      "rowSet": [
+        [1, "Player A", 100, "DEN", 28, 70, 50, 20, 0.714, 34.0, 118.2, 108.1, 10.1, 0.312, 2.1, 22.5, 0.05, 0.22, 0.135, 0.09, 0.61, 0.63, 0.301, 99.1, 0.184],
+        [2, "Player B", 200, "LAL", 25, 65, 30, 35, 0.462, 30.0, 110.4, 114.2, -3.8, 0.198, 1.6, 16.2, 0.03, 0.15, 0.09, 0.11, 0.55, 0.57, 0.221, 98.4, 0.121]
+      ]
+    }
+  ]
+}

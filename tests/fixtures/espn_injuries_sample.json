@@ -1,0 +1,37 @@
+{
+  "injuries": [
+    {
+      "id": "1",
+      "displayName": "Denver Nuggets",
+      "injuries": [
+        {
+          "id": "1001",
+          "status": "Day-To-Day",
+          "date": "2025-01-10T00:14Z",
+          "shortComment": "Player A is questionable with a sore ankle.",
+          "athlete": {"displayName": "Player A"}
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "displayName": "Los Angeles Lakers",
+      "injuries": [
+        {
+          "id": "1002",
+          "status": "Out",
+          "date": "2025-01-08T00:14Z",
+          "shortComment": "Player B is out after undergoing surgery.",
+          "athlete": {"displayName": "Player B"}
+        },
+        {
+          "id": "1003",
+          "status": "Day-To-Day",
+          "date": "2025-01-09T00:14Z",
+          "shortComment": "Player C is questionable with knee soreness.",
+          "athlete": {"displayName": "Player C"}
+        }
+      ]
+    }
+  ]
+}
