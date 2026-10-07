@@ -87,9 +87,12 @@ season pulls in meaningful weight from the one before it.
 
 Backtested against a naive "assume last season repeats" baseline (Spearman
 rank correlation, top-200 pool) across three season transitions. The age
-curve constants (peak_age=25, youth_growth=0.025, decline=0.0) were
-grid-searched on the first two transitions only; 2024-25 → 2025-26 was
-held out of that search entirely and only scored afterward:
+curve constants were chosen via a grid search over peak_age/youth_growth/
+decline on the first two transitions only -- the literal optimum there was
+close to (peak_age=24, growth=0.0275, decline=0.0075), and the shipped
+round numbers (peak_age=25, growth=0.025, decline=0.0) score within noise
+of it, so those were kept. 2024-25 → 2025-26 was held out of that search
+entirely and only scored afterward:
 
 | Transition | Naive | Age curve only | Age curve + blend (default) |
 | --- | --- | --- | --- |
