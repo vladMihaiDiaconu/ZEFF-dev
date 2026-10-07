@@ -86,8 +86,10 @@ dominates its own blend almost entirely; only a short, injury-limited
 season pulls in meaningful weight from the one before it.
 
 Backtested against a naive "assume last season repeats" baseline (Spearman
-rank correlation, top-200 pool) across three season transitions, including
-one held out of the tuning process entirely:
+rank correlation, top-200 pool) across three season transitions. The age
+curve constants (peak_age=25, youth_growth=0.025, decline=0.0) were
+grid-searched on the first two transitions only; 2024-25 → 2025-26 was
+held out of that search entirely and only scored afterward:
 
 | Transition | Naive | Age curve only | Age curve + blend (default) |
 | --- | --- | --- | --- |
@@ -96,8 +98,9 @@ one held out of the tuning process entirely:
 | 2024-25 → 2025-26 | 0.681 | 0.712 | 0.732 |
 
 The age curve + blend combination beats both the naive baseline and the
-age-curve-only version in every transition tested, including the held-out
-one. A fixed-ratio multi-season blend (`blend_seasons`), shooting-pct
+age-curve-only version in every transition tested, including 2024-25 →
+2025-26, which never factored into picking the constants. A fixed-ratio
+multi-season blend (`blend_seasons`), shooting-pct
 regression to the mean (`regress_shooting_pct`), and a momentum/trend
 signal were also tried and left out — none beat the baseline out of
 sample. The first two are still in `src/zeff/zscore/projection.py` if
