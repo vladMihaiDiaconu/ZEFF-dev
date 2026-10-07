@@ -46,8 +46,9 @@ Rank players (retrospective, based on real stats already played):
 python -m zeff.cli rank --season 2026 --top 50
 ```
 
-Or projected forward (age-curved latest season + pace adjustment for
-trades), with the ADP comparison joined in:
+Or projected forward (games-weighted blend of the last two seasons, age
+curve, plus a pace adjustment for trades), with the ADP comparison joined
+in:
 
 ```
 python -m zeff.cli rank --season 2026 --projected --show-adp --top 50
@@ -78,16 +79,29 @@ python -m zeff.cli rank --season 2026 --projected --show-adp --top 50
 
 ### `--projected`
 
-Age-curve-adjusted latest season, plus a pace adjustment for players who
-changed teams. A backtest across two season transitions (2023-24→2024-25
-and 2024-25→2025-26) found that a multi-season recency-weighted blend and
-shooting-pct regression to the mean — both tried first — didn't beat a
-naive "assume last season repeats" baseline, and in several variants made
-it worse. The age curve was the one mechanism that consistently helped, so
-that's what the default pipeline uses. `blend_seasons`/`regress_shooting_pct`
-are still in `src/zeff/zscore/projection.py` if that's ever worth
-revisiting. Trade impact is deliberately pace-only, not a usage/role guess
-— see that module for why.
+Games-weighted blend of the last two seasons, adjusted with an age curve,
+plus a pace adjustment for players who changed teams. A full season
+dominates its own blend almost entirely; only a short, injury-limited
+season pulls in meaningful weight from the one before it.
+
+Backtested against a naive "assume last season repeats" baseline (Spearman
+rank correlation, top-200 pool) across three season transitions, including
+one held out of the tuning process entirely:
+
+| Transition | Naive | Age curve only | Age curve + blend (default) |
+| --- | --- | --- | --- |
+| 2023-24 → 2024-25 | 0.754 | 0.769 | 0.784 |
+| 2024-25 → 2025-26 | 0.702 | 0.736 | 0.758 |
+| 2025-26 → 2026-27 | 0.681 | 0.712 | 0.732 |
+
+The age curve + blend combination beats both the naive baseline and the
+age-curve-only version in every transition tested, including the held-out
+one. A fixed-ratio multi-season blend (`blend_seasons`), shooting-pct
+regression to the mean (`regress_shooting_pct`), and a momentum/trend
+signal were also tried and left out — none beat the baseline out of
+sample. The first two are still in `src/zeff/zscore/projection.py` if
+that's ever worth revisiting. Trade impact is deliberately pace-only, not
+a usage/role guess — see that module for why.
 
 ## Known limitations
 
